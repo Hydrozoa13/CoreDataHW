@@ -19,7 +19,28 @@ class CategoriesTVC: UITableViewController {
     }
     
     @IBAction func addNewCategory(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add new category", message: "", preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Category"
+        }
         
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
+            if let textField = alert.textFields?.first,
+               let text = textField.text,
+               text != "",
+               let self {
+                let newCategory = CategoryModel(context: self.context)
+                newCategory.name = text
+                self.categories.append(newCategory)
+                self.tableView.insertRows(at: [IndexPath(row: self.categories.count - 1, section: 0)], with: .automatic)
+                self.saveCategories()
+            }
+        }
+        
+        alert.addAction(cancel)
+        alert.addAction(addAction)
+        self.present(alert, animated: true)
     }
     
 
@@ -92,6 +113,15 @@ class CategoriesTVC: UITableViewController {
     private func loadCategories(with request: NSFetchRequest<CategoryModel> = CategoryModel.fetchRequest()) {
         do {
             categories = try context.fetch(request)
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+    }
+    
+    private func saveCategories() {
+        do {
+            try context.save()
         } catch {
             let nserror = error as NSError
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
