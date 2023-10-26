@@ -88,34 +88,16 @@ class ItemsTVC: UITableViewController {
                     saveItems()
                     tableView.deleteRows(at: [indexPath], with: .automatic)
                 }
-            }   
+            }
         }
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        items[indexPath.row].done.toggle()
+        self.saveItems()
+        tableView.reloadRows(at: [indexPath], with: .fade)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: - CoreData
     
@@ -146,6 +128,20 @@ class ItemsTVC: UITableViewController {
         } catch {
             let nserror = error as NSError
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+    }
+}
+
+extension ItemsTVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            loadItems()
+            searchBar.resignFirstResponder()
+        } else {
+            let request: NSFetchRequest<ItemModel> = ItemModel.fetchRequest()
+            let searchPredicate = NSPredicate(format: "title CONTAINS %@", searchText)
+            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+            loadItems(with: request, predicate: searchPredicate)
         }
     }
 }
