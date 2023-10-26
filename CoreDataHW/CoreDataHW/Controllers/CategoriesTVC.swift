@@ -79,11 +79,18 @@ class CategoriesTVC: UITableViewController {
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showItems", sender: nil)
+    }
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if let vc = segue.destination as? ItemsTVC,
+           let indexPath = tableView.indexPathForSelectedRow {
+            vc.selectedCategory = categories[indexPath.row]
+        }
     }
     
     // MARK: - CoreData
