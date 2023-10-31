@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		D141BAC42AEA4AA30096662E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D141BAC32AEA4AA30096662E /* AppDelegate.swift */; };
 		D141BAC62AEA4AA30096662E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D141BAC52AEA4AA30096662E /* SceneDelegate.swift */; };
-		D141BAC82AEA4AA30096662E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D141BAC72AEA4AA30096662E /* ViewController.swift */; };
 		D141BACB2AEA4AA30096662E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D141BAC92AEA4AA30096662E /* Main.storyboard */; };
 		D141BACE2AEA4AA30096662E /* CoreDataHW.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D141BACC2AEA4AA30096662E /* CoreDataHW.xcdatamodeld */; };
 		D141BAD02AEA4AA40096662E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D141BACF2AEA4AA40096662E /* Assets.xcassets */; };
 		D141BAD32AEA4AA40096662E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D141BAD12AEA4AA40096662E /* LaunchScreen.storyboard */; };
+		D141BADF2AEA4E280096662E /* CategoriesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D141BADE2AEA4E280096662E /* CategoriesTVC.swift */; };
+		D141BAE12AEA4E450096662E /* ItemsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D141BAE02AEA4E450096662E /* ItemsTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D141BAC02AEA4AA30096662E /* CoreDataHW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataHW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D141BAC32AEA4AA30096662E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D141BAC52AEA4AA30096662E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D141BAC72AEA4AA30096662E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D141BACA2AEA4AA30096662E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D141BACD2AEA4AA30096662E /* CoreDataHW.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataHW.xcdatamodel; sourceTree = "<group>"; };
 		D141BACF2AEA4AA40096662E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D141BAD22AEA4AA40096662E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D141BAD42AEA4AA40096662E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D141BADE2AEA4E280096662E /* CategoriesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTVC.swift; sourceTree = "<group>"; };
+		D141BAE02AEA4E450096662E /* ItemsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,49 @@
 		D141BAC22AEA4AA30096662E /* CoreDataHW */ = {
 			isa = PBXGroup;
 			children = (
-				D141BAC32AEA4AA30096662E /* AppDelegate.swift */,
-				D141BAC52AEA4AA30096662E /* SceneDelegate.swift */,
-				D141BAC72AEA4AA30096662E /* ViewController.swift */,
-				D141BAC92AEA4AA30096662E /* Main.storyboard */,
+				D141BADB2AEA4B1A0096662E /* Models */,
+				D141BADC2AEA4B250096662E /* Views */,
+				D141BADD2AEA4B4B0096662E /* Controllers */,
+				D141BADA2AEA4ADD0096662E /* AppDelegate */,
 				D141BACF2AEA4AA40096662E /* Assets.xcassets */,
-				D141BAD12AEA4AA40096662E /* LaunchScreen.storyboard */,
 				D141BAD42AEA4AA40096662E /* Info.plist */,
-				D141BACC2AEA4AA30096662E /* CoreDataHW.xcdatamodeld */,
 			);
 			path = CoreDataHW;
+			sourceTree = "<group>";
+		};
+		D141BADA2AEA4ADD0096662E /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D141BAC32AEA4AA30096662E /* AppDelegate.swift */,
+				D141BAC52AEA4AA30096662E /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D141BADB2AEA4B1A0096662E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D141BACC2AEA4AA30096662E /* CoreDataHW.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D141BADC2AEA4B250096662E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D141BAC92AEA4AA30096662E /* Main.storyboard */,
+				D141BAD12AEA4AA40096662E /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D141BADD2AEA4B4B0096662E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D141BADE2AEA4E280096662E /* CategoriesTVC.swift */,
+				D141BAE02AEA4E450096662E /* ItemsTVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +176,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D141BAC82AEA4AA30096662E /* ViewController.swift in Sources */,
 				D141BACE2AEA4AA30096662E /* CoreDataHW.xcdatamodeld in Sources */,
+				D141BADF2AEA4E280096662E /* CategoriesTVC.swift in Sources */,
+				D141BAE12AEA4E450096662E /* ItemsTVC.swift in Sources */,
 				D141BAC42AEA4AA30096662E /* AppDelegate.swift in Sources */,
 				D141BAC62AEA4AA30096662E /* SceneDelegate.swift in Sources */,
 			);
@@ -311,9 +347,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.CoreDataHW;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -339,9 +378,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.CoreDataHW;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
